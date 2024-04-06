@@ -50,6 +50,6 @@ public class Enemy : MonoBehaviour, ICharacter
     {
         _playerRef.IncreaseScore(1);
         Debug.Log("I have blubbed my last");
-        //gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }

@@ -17,10 +17,13 @@ All other C# Scripts are written by myself (GitHub account owner). I use tutoria
 
 * A* Pathfinding
   * Download from Aron's site and import to project and place in the External folder
+* Rubik Scribble
+  * Download from Google Fonts and import the RubikScribble-Regular.ttf to External/Fonts
 
 ## Tutorials Used
 - Brackeys 2D Pathfinding ([YouTube Video](https://www.youtube.com/watch?v=jvtFUfJ6CP8))
 - CodeMonkey The PERFECT Pathfinding ([YouTube Video](https://www.youtube.com/watch?v=46qZgd-T-hk))
 
 ## Asset List
-- A* Pathfinding ([Aron Granberg Site](arongranberg.com))
+- A* Pathfinding ([Aron Granberg Site](https://arongranberg.com/))
+- Rubik Scribble Font ([Google Fonts Page](https://fonts.google.com/specimen/Rubik+Scribble?query=+Rubik+Scribble+))

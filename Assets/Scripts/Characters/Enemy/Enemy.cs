@@ -9,12 +9,32 @@ public class Enemy : MonoBehaviour, ICharacter
     private int _hp;
     public int _maxHP;
     private AIDestinationSetter _aiDestinationSetter;
-    private Transform _playerRef;
-    private void Awake()
+    private Player _playerRef;
+
+
+    private float time = 5;
+
+    // Intended to be pooled so preset values in Start and Enemy reset in Awake
+    private void Start()
     {
         _aiDestinationSetter = GetComponent<AIDestinationSetter>();
-        _playerRef = FindObjectOfType<PlayerMovement>().transform;
-        _aiDestinationSetter.target = _playerRef;
+        _playerRef = FindObjectOfType<Player>();
+        _aiDestinationSetter.target = _playerRef.transform;
+    }
+
+    private void Awake()
+    {
+        _hp = _maxHP;
+    }
+
+    private void Update()
+    {
+        time -= Time.deltaTime;
+        if (time < 0)
+        {
+            Die();
+            time = 5;
+        }
     }
 
     public void TakeDamage(int damageToTake)
@@ -28,6 +48,8 @@ public class Enemy : MonoBehaviour, ICharacter
 
     private void Die()
     {
+        _playerRef.IncreaseScore(1);
         Debug.Log("I have blubbed my last");
+        //gameObject.SetActive(false);
     }
 }

@@ -73,3 +73,6 @@ crashlytics-build.properties
 
 # Rider .idea folder
 .idea
+
+# External Asset Folder (for A* Package and Sprites)
+/[Aa]ssets/[Ee]xternal/**

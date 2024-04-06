@@ -1,2 +1,26 @@
 # FishFest24
  Game made in Unity for Fish Fest Game Jam.
+
+## Introduction
+* This Project is made by a team of 2 University Graduates. 1 Gameplay Programmer and 1 Game Designer.
+* There are many assets in this project that are not made by either of us and will be referenced in the Asset List below.
+* Said Assets will be in the External folder that will be GitIgnored.
+
+### Disclaimer
+We have opted to use an A* Pathfinding Algorithm that is not owned nor written by any of the developers responsible for this project.
+The asset used is freely available at the site linked in the Asset List.
+The Art and Music in this project are also not made by any developer within this project and also will be found in the Asset List section.
+
+All other C# Scripts are written by myself (GitHub account owner). I use tutorials and googling for help / reference and try to list those below where appropriate.
+
+## Instructions
+
+* A* Pathfinding
+  * Download from Aron's site and import to project and place in the External folder
+
+## Tutorials Used
+- Brackeys 2D Pathfinding ([YouTube Video](https://www.youtube.com/watch?v=jvtFUfJ6CP8))
+- CodeMonkey The PERFECT Pathfinding ([YouTube Video](https://www.youtube.com/watch?v=46qZgd-T-hk))
+
+## Asset List
+- A* Pathfinding ([Aron Granberg Site](arongranberg.com))

@@ -29,5 +29,15 @@ public class PlayerMovement : MonoBehaviour, ICharacter
         if (_myActions == null) return;
         _moveToApply = _myActions.Game.Movement.ReadValue<Vector2>();
         _rigidbody2D.AddForce(_moveToApply * _moveSpeed);
+        RotateToMouse();
+    }
+
+    private void RotateToMouse()
+    {
+        Vector2 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = MousePos - (Vector2)transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5f * Time.deltaTime);
     }
 }

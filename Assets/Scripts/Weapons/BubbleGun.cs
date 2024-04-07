@@ -20,7 +20,6 @@ public class BubbleGun : MonoBehaviour
     {
         fireTimer = 1 / bulletsPerSecond;
         currentFireTimer = fireTimer;
-        Debug.Log(fireTimer);
 
         PoolInfo _bubbleInfo = new PoolInfo(null, bulletPrefab, 5);
         _bubblePool = new ObjectPool(_bubbleInfo);
@@ -28,21 +27,22 @@ public class BubbleGun : MonoBehaviour
 
     private void Update()
     {
-        fireTimer -= Time.deltaTime;
-        if (fireTimer < 0)
+        currentFireTimer -= Time.deltaTime;
+        if (currentFireTimer < 0)
         {
             FireGun();
-            currentFireTimer = fireTimer;
         }
     }
-
+    private GameObject bullet;
     private void FireGun()
     {
-        Debug.Log("Bang!");
+        // Reset fire timer
+        currentFireTimer = fireTimer;
         
-        GameObject bullet = _bubblePool.GetObjectFromPool();
-        bullet.transform.position = transform.right + transform.position;
+        //Get and setup bullet for firing
+        bullet = _bubblePool.GetObjectFromPool();
+        bullet.transform.position = transform.up + transform.position;
         bullet.SetActive(true);
-        bullet.GetComponent<Rigidbody2D>().AddForce(transform.right*5);
+        bullet.GetComponent<Rigidbody2D>().AddForce(transform.up*5, ForceMode2D.Impulse);
     }
 }

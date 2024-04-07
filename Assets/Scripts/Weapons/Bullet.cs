@@ -10,11 +10,6 @@ public class Bullet : MonoBehaviour
     private float maxLifeTime = 2;
     private float lifeTimer;
 
-    private void Awake()
-    {
-        lifeTimer = maxLifeTime;
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag(TagToHit))
@@ -29,6 +24,8 @@ public class Bullet : MonoBehaviour
         lifeTimer -= Time.deltaTime;
         if (lifeTimer < 0)
         {
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            lifeTimer = maxLifeTime;
             gameObject.SetActive(false);
         }
     }

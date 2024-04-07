@@ -10,10 +10,7 @@ public class Enemy : MonoBehaviour, ICharacter
     public int _maxHP;
     private AIDestinationSetter _aiDestinationSetter;
     private Player _playerRef;
-
-
-    private float time = 5;
-
+    
     // Intended to be pooled so preset values in Start and Enemy reset in Awake
     private void Start()
     {
@@ -25,7 +22,6 @@ public class Enemy : MonoBehaviour, ICharacter
     private void Awake()
     {
         _hp = _maxHP;
-        time = 5;
     }
 
     public void TakeDamage(int damageToTake)

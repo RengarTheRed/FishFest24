@@ -11,22 +11,44 @@ class ObjectPool
     {
         _poolInfo = inInfo;
         _objPool = new List<GameObject>();
-        for (int i = 0; i < _poolInfo.InitialPoolSize; i++)
+        if (!CheckIfPoolExist(_poolInfo.ObjPrefab))
         {
-            CreateObjectInPool();
+            for (int i = 0; i < _poolInfo.InitialPoolSize; i++)
+            {
+                CreateObjectInPool();
+            }
         }
+    }
+
+    private bool CheckIfPoolExist(GameObject prefabToCheck)
+    {
+        if (GameObject.Find(prefabToCheck.name + " parent"))
+        {
+            GameObject existingPool = GameObject.Find(prefabToCheck.name + " parent");
+            foreach (Transform poolObj in existingPool.transform)
+            {
+                _objPool.Add(poolObj.gameObject);
+            }
+            return true;
+        }
+        return false;
     }
 
     private GameObject CreateObjectInPool()
     {
         GameObject newPoolObject = Object.Instantiate(_poolInfo.ObjPrefab, Vector2.zero, Quaternion.identity);
-        newPoolObject.transform.parent = _poolInfo.ParentObject;
         newPoolObject.SetActive(false);
-        _objPool.Add(newPoolObject);
+
+        if (!_poolInfo.ParentObject)
+        {
+            _poolInfo.ParentObject = new GameObject(_poolInfo.ObjPrefab.name + " parent").transform;
+        }
+        newPoolObject.transform.parent = _poolInfo.ParentObject;
         
+        _objPool.Add(newPoolObject);
         return newPoolObject;
     }
-
+    
     public GameObject GetObjectFromPool()
     {
         foreach (var t in _objPool.Where(t => !t.activeSelf))

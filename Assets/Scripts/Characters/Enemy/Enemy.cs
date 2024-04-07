@@ -28,16 +28,6 @@ public class Enemy : MonoBehaviour, ICharacter
         time = 5;
     }
 
-    private void Update()
-    {
-        time -= Time.deltaTime;
-        if (time < 0)
-        {
-            Die();
-            time = 5;
-        }
-    }
-
     public void TakeDamage(int damageToTake)
     {
         _hp = -damageToTake;
@@ -50,7 +40,6 @@ public class Enemy : MonoBehaviour, ICharacter
     private void Die()
     {
         _playerRef.IncreaseScore(1);
-        Debug.Log("I have blubbed my last");
         gameObject.SetActive(false);
     }
 }

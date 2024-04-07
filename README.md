@@ -19,6 +19,14 @@ All other C# Scripts are written by myself (GitHub account owner). I use tutoria
   * Download from Aron's site and import to project and place in the External folder
 * Rubik Scribble
   * Download from Google Fonts and import the RubikScribble-Regular.ttf to External/Fonts
+* SpearFishing Asset Pack
+  * Download from Itch and import specific sprite PNGs to External/SpriteSheets/Fish
+    * Fish 2 - 32x16 Orange.png
+      * Sprite Mode Multiple, Pixel Per Unit 16
+      * Sprite Editor Slice 32x16
+    * Bubble 8x8
+      * Sprite Mode Multiple Pixel Per Unit 8
+        * Sprite Editor Slice 8x8
 
 ## Tutorials Used
 - Brackeys 2D Pathfinding ([YouTube Video](https://www.youtube.com/watch?v=jvtFUfJ6CP8))
@@ -27,3 +35,4 @@ All other C# Scripts are written by myself (GitHub account owner). I use tutoria
 ## Asset List
 - A* Pathfinding ([Aron Granberg Site](https://arongranberg.com/))
 - Rubik Scribble Font ([Google Fonts Page](https://fonts.google.com/specimen/Rubik+Scribble?query=+Rubik+Scribble+))
+- SpearFishing assets pack ([Itch page](https://nszym.itch.io/spearfishing-assets-pack))

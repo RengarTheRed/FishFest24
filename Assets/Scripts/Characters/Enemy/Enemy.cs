@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour, ICharacter
     private void Awake()
     {
         _hp = _maxHP;
+        time = 5;
     }
 
     private void Update()

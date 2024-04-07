@@ -7,7 +7,6 @@ class ObjectPool
     private PoolInfo _poolInfo;
     private List<GameObject> _objPool;
     
-    
     public ObjectPool(PoolInfo inInfo)
     {
         _poolInfo = inInfo;

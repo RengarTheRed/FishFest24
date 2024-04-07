@@ -37,8 +37,7 @@ public class PlayerMovement : MonoBehaviour, ICharacter
     // Rotate Player to Mouse Cursor Pos
     private void RotateToMouse()
     {
-        Vector2 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = MousePos - (Vector2)transform.position;
+        Vector2 direction = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5f * Time.deltaTime);

@@ -43,6 +43,6 @@ public class BubbleGun : MonoBehaviour
         bullet = _bubblePool.GetObjectFromPool();
         bullet.transform.position = transform.up + transform.position;
         bullet.SetActive(true);
-        bullet.GetComponent<Rigidbody2D>().AddForce(transform.up*5, ForceMode2D.Impulse);
+        bullet.GetComponent<Rigidbody2D>().AddForce(transform.up*10, ForceMode2D.Impulse);
     }
 }

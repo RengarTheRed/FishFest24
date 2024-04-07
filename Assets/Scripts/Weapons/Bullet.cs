@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
 {
     public String TagToHit;
 
-    private float maxLifeTime = 2;
+    private float maxLifeTime = 10;
     private float lifeTimer;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -16,6 +16,11 @@ public class Bullet : MonoBehaviour
         {
             other.GetComponent<ICharacter>().TakeDamage(10);
             Debug.Log("Hit target");
+        }
+
+        if (other.CompareTag("Wall"))
+        {
+            gameObject.SetActive(false);
         }
     }
 

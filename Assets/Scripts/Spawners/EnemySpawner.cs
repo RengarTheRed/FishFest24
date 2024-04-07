@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Enemy Info")] 
-    [SerializeField] private List<Vector2> _spawnPoints;
+    [SerializeField] private Transform _spawnPoints;
     [SerializeField] private GameObject _enemyPrefab;
     [SerializeField] private int _poolSize;
     [SerializeField] private float _spawnTimer;
@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         GameObject toSpawn = _enemyPool.GetObjectFromPool();
-        toSpawn.transform.position = Vector2.zero;
+        toSpawn.transform.position = _spawnPoints.GetChild(UnityEngine.Random.Range(0, _spawnPoints.childCount)).position;;
         toSpawn.SetActive(true);
     }
 }

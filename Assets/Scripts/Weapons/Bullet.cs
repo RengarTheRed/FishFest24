@@ -16,7 +16,6 @@ public class Bullet : MonoBehaviour
         if(other.CompareTag(TagToHit))
         {
             other.GetComponent<ICharacter>().TakeDamage(1);
-            Debug.Log("Bang!");
             gameObject.SetActive(false);
         }
         if (other.CompareTag("Wall"))

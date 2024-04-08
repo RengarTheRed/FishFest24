@@ -33,6 +33,14 @@ public class Enemy : MonoBehaviour, ICharacter
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<ICharacter>().TakeDamage(1);
+        }
+    }
+
     private void Die()
     {
         _playerRef.IncreaseScore(1);

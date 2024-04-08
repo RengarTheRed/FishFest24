@@ -56,6 +56,7 @@ public class HUD : MonoBehaviour
 
     public void GameOver()
     {
+        Time.timeScale = 0f;
         _panelGameOver.gameObject.SetActive(true);
     }
 

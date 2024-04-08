@@ -1430,7 +1430,7 @@ MonoBehaviour:
   _spawnPoints: {fileID: 717384399}
   _enemyPrefab: {fileID: 444492902971562641, guid: 2d182c1e57960a3409ce7d20d0e9d7c0, type: 3}
   _poolSize: 5
-  _spawnTimer: 6
+  _spawnTimer: 7
 --- !u!1 &672481691
 GameObject:
   m_ObjectHideFlags: 0
@@ -2439,7 +2439,7 @@ MonoBehaviour:
   _spawnPoints: {fileID: 717384399}
   _enemyPrefab: {fileID: 444492902971562641, guid: 8b031cda68892d047b21b1156c99b274, type: 3}
   _poolSize: 5
-  _spawnTimer: 3
+  _spawnTimer: 2
 --- !u!1 &1249658380
 GameObject:
   m_ObjectHideFlags: 0

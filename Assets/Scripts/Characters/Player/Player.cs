@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour, ICharacter
 {
     [SerializeField] private HUD _hudScript;
-
+    
     private float timeElapsed=0;
     private int score=0;
     private int currentHP;
@@ -34,7 +34,6 @@ public class Player : MonoBehaviour, ICharacter
     public void TakeDamage(int damageToTake)
     {
         currentHP -= damageToTake;
-        Debug.Log("Ouch!");
         _hudScript.UpdateHPBar((float)currentHP, (float)maxHP);
         if (currentHP <= 0)
         {

@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private HUD _hudScript;
+
     private PlayerInputMap _myActions;
     private Rigidbody2D _rigidbody2D;
     
@@ -22,6 +24,14 @@ public class PlayerMovement : MonoBehaviour
         _myActions = new PlayerInputMap();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _myActions.Game.Enable();
+        _myActions.Game.Pause.performed += PauseInput;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    // Required for Enhanced Input to not cause error on restart
+    public void DropBindings()
+    {
+        _myActions.Game.Pause.performed -= PauseInput;
     }
 
     private void FixedUpdate()
@@ -55,5 +65,9 @@ public class PlayerMovement : MonoBehaviour
         {
             _playerSprite.flipY = false;
         }
+    }
+    private void PauseInput(InputAction.CallbackContext cbContext)
+    {
+        _hudScript.PauseResume();
     }
 }

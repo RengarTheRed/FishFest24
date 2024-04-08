@@ -13,6 +13,9 @@ public class HUD : MonoBehaviour
     [SerializeField] private Slider _hpBar;
 
     [SerializeField] private Transform _panelGameOver;
+    [SerializeField] private Transform _panelPause;
+
+    [SerializeField] private PlayerMovement _playerMovement;
     
     
     // HUD Functionality
@@ -32,17 +35,22 @@ public class HUD : MonoBehaviour
     }
 
     // In-Game Menus Button Functionality
+    // Pause trigger is on PlayerMovement
     public void PauseResume()
     {
         // Resume Game
-        if (Time.time>0)
+        if (Time.timeScale<1)
         {
-            
+            Time.timeScale = 1;
+            _panelPause.gameObject.SetActive(false);
+            Cursor.lockState = CursorLockMode.Confined;
         }
         // Pauses Game
         else
         {
             Time.timeScale = 0;
+            _panelPause.gameObject.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
@@ -53,6 +61,8 @@ public class HUD : MonoBehaviour
 
     public void Restart()
     {
+        _playerMovement.DropBindings();
+        PauseResume();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

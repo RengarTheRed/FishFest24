@@ -14,6 +14,7 @@ public class HUD : MonoBehaviour
 
     [SerializeField] private Transform _panelGameOver;
     [SerializeField] private Transform _panelPause;
+    [SerializeField] private Transform _panelStart;
 
     [SerializeField] private PlayerMovement _playerMovement;
     
@@ -69,6 +70,8 @@ public class HUD : MonoBehaviour
 
     public void StartGame()
     {
-        
+        _panelStart.gameObject.SetActive(false);
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 }

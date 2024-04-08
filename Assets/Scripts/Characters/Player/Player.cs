@@ -17,6 +17,9 @@ public class Player : MonoBehaviour, ICharacter
         currentHP = maxHP;
         IncreaseScore(0);
         TakeDamage(0);
+
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void Update()

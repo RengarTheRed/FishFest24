@@ -33,6 +33,9 @@ All other C# Scripts are written by myself (GitHub account owner). I use tutoria
     * Angler Fish 32x32
       * Sprite Mode Multiple Pixel per Unit 16
         * Sprite Editor Slice 32x32
+    * Tiles 16x16
+      * Sprite Mode Multiple Pixel Per Unit 16
+        * Sprite Editor Slice 16x16
 
 ## Tutorials Used
 - Brackeys 2D Pathfinding ([YouTube Video](https://www.youtube.com/watch?v=jvtFUfJ6CP8))

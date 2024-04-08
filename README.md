@@ -36,6 +36,8 @@ All other C# Scripts are written by myself (GitHub account owner). I use tutoria
     * Tiles 16x16
       * Sprite Mode Multiple Pixel Per Unit 16
         * Sprite Editor Slice 16x16
+* Loopable BGM
+  * Place Warmth.wav into External/Sound/Music
 
 ## Tutorials Used
 - Brackeys 2D Pathfinding ([YouTube Video](https://www.youtube.com/watch?v=jvtFUfJ6CP8))
@@ -45,3 +47,4 @@ All other C# Scripts are written by myself (GitHub account owner). I use tutoria
 - A* Pathfinding ([Aron Granberg Site](https://arongranberg.com/))
 - Rubik Scribble Font ([Google Fonts Page](https://fonts.google.com/specimen/Rubik+Scribble?query=+Rubik+Scribble+))
 - SpearFishing assets pack ([Itch page](https://nszym.itch.io/spearfishing-assets-pack))
+- 41 Short, Loopable Background Music Files ([Itch Page](https://joshuuu.itch.io/short-loopable-background-music))

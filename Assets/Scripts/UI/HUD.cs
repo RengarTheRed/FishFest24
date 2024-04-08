@@ -39,6 +39,10 @@ public class HUD : MonoBehaviour
     // Pause trigger is on PlayerMovement
     public void PauseResume()
     {
+        if (_panelStart.gameObject.activeSelf)
+        {
+            return;
+        }
         // Resume Game
         if (Time.timeScale<1)
         {

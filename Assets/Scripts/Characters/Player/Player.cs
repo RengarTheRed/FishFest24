@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour, ICharacter
 {
-    [FormerlySerializedAs("_hudScript")] [SerializeField] private HUD hudScript;
+    [SerializeField] private HUD hudScript;
     
     private float _timeElapsed=0;
     private int _score=0;
@@ -36,7 +36,6 @@ public class Player : MonoBehaviour, ICharacter
         // IFrames after taking damage
         if (_invincible)
         {
-            Debug.Log(_invincibilityTimer);
             _invincibilityTimer -= Time.deltaTime;
             if (_invincibilityTimer < 0)
             {

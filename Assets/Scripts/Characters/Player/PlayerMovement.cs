@@ -41,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
         _moveToApply = _myActions.Game.Movement.ReadValue<Vector2>();
         _rigidbody2D.AddForce(_moveToApply * _moveSpeed);
         RotateToMouse();
-        RotateSprite();
     }
 
     // Rotate Player to Mouse Cursor Pos
@@ -52,20 +51,7 @@ public class PlayerMovement : MonoBehaviour
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5f * Time.deltaTime);
     }
-
-    // Sprite Flipping Logic
-    private void RotateSprite()
-    {
-        if (transform.rotation.z > 0)
-        {
-            _playerSprite.flipY = true;
-        }
-
-        if (transform.rotation.z < 0)
-        {
-            _playerSprite.flipY = false;
-        }
-    }
+    
     private void PauseInput(InputAction.CallbackContext cbContext)
     {
         _hudScript.PauseResume();

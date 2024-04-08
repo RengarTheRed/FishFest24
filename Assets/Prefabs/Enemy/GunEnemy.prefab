@@ -125,7 +125,7 @@ MonoBehaviour:
   radius: 0.5
   height: 2
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 2
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56aeeba19e597d4f858cbf127c16984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletsPerSecond: 1
+  bulletsPerSecond: 0.3
   bulletPrefab: {fileID: 4462641623552677446, guid: 95aacf673eaa0f748bb2906be8991014, type: 3}
 --- !u!58 &2839950703553868635
 CircleCollider2D:

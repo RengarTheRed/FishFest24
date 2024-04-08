@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class PlayerMovement : MonoBehaviour, ICharacter
+public class PlayerMovement : MonoBehaviour
 {
     private PlayerInputMap _myActions;
     private Rigidbody2D _rigidbody2D;

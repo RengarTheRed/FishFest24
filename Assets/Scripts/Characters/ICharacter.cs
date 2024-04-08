@@ -4,7 +4,5 @@ using UnityEngine;
 
 interface ICharacter
 {
-    public virtual void TakeDamage(int damageToTake)
-    {
-    }
+    public abstract void TakeDamage(int damageToTake);
 }

@@ -15,6 +15,8 @@ public class Player : MonoBehaviour, ICharacter
     private void Awake()
     {
         currentHP = maxHP;
+        IncreaseScore(0);
+        TakeDamage(0);
     }
 
     private void Update()
@@ -27,12 +29,16 @@ public class Player : MonoBehaviour, ICharacter
     {
         score += toAdd;
         _hudScript.UpdateScoreUI(score);
-        TakeDamage(1);
     }
 
     public void TakeDamage(int damageToTake)
     {
         currentHP -= damageToTake;
+        Debug.Log("Ouch!");
         _hudScript.UpdateHPBar((float)currentHP, (float)maxHP);
+        if (currentHP <= 0)
+        {
+            _hudScript.GameOver();
+        }
     }
 }

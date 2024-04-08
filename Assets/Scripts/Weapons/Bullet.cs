@@ -12,18 +12,20 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // Bullet de-spawn on either hitting tagged target or wall
         if(other.CompareTag(TagToHit))
         {
-            other.GetComponent<ICharacter>().TakeDamage(10);
-            Debug.Log("Hit target");
+            other.GetComponent<ICharacter>().TakeDamage(1);
+            Debug.Log("Bang!");
+            gameObject.SetActive(false);
         }
-
         if (other.CompareTag("Wall"))
         {
             gameObject.SetActive(false);
         }
     }
 
+    // Bullet lifespan
     private void Update()
     {
         lifeTimer -= Time.deltaTime;

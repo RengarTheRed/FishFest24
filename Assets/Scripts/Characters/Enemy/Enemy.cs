@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour, ICharacter
 
     public void TakeDamage(int damageToTake)
     {
-        _hp = -damageToTake;
+        _hp -= damageToTake;
         if (_hp < 0)
         {
             Die();

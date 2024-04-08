@@ -1,20 +1,26 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour, ICharacter
 {
-    [SerializeField] private HUD _hudScript;
+    [FormerlySerializedAs("_hudScript")] [SerializeField] private HUD hudScript;
     
-    private float timeElapsed=0;
-    private int score=0;
-    private int currentHP;
-    public int maxHP=5;
+    private float _timeElapsed=0;
+    private int _score=0;
+    private int _currentHp;
+    public int maxHp=5;
+
+    [SerializeField] private float _maxInvincibilityTimer = 2;
+    private float _invincibilityTimer;
+    private bool _invincible=false;
 
     private void Awake()
     {
-        currentHP = maxHP;
+        _currentHp = maxHp;
         IncreaseScore(0);
         TakeDamage(0);
 
@@ -24,23 +30,39 @@ public class Player : MonoBehaviour, ICharacter
 
     private void Update()
     {
-        timeElapsed += Time.deltaTime;
-        _hudScript.UpdateTimerUI(timeElapsed);
+        _timeElapsed += Time.deltaTime;
+        hudScript.UpdateTimerUI(_timeElapsed);
+        
+        // IFrames after taking damage
+        if (_invincible)
+        {
+            Debug.Log(_invincibilityTimer);
+            _invincibilityTimer -= Time.deltaTime;
+            if (_invincibilityTimer < 0)
+            {
+                _invincible = false;
+            }
+        }
     }
 
     public void IncreaseScore(int toAdd)
     {
-        score += toAdd;
-        _hudScript.UpdateScoreUI(score);
+        _score += toAdd;
+        hudScript.UpdateScoreUI(_score);
     }
 
     public void TakeDamage(int damageToTake)
     {
-        currentHP -= damageToTake;
-        _hudScript.UpdateHPBar((float)currentHP, (float)maxHP);
-        if (currentHP <= 0)
+        if (!_invincible)
         {
-            _hudScript.GameOver();
+            _invincibilityTimer = _maxInvincibilityTimer;
+            _invincible = true;
+            _currentHp -= damageToTake;
+            hudScript.UpdateHPBar((float)_currentHp, (float)maxHp);
+            if (_currentHp <= 0)
+            {
+                hudScript.GameOver();
+            }
         }
     }
 }

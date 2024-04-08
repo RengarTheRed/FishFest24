@@ -10,17 +10,29 @@ public class Bullet : MonoBehaviour
     private float maxLifeTime = 10;
     private float lifeTimer;
 
+    private bool _bulletUsed=false;
+    
+
+    private void OnEnable()
+    {
+        _bulletUsed = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Bullet de-spawn on either hitting tagged target or wall
-        if(other.CompareTag(TagToHit))
+        if (!_bulletUsed)
         {
-            other.GetComponent<ICharacter>().TakeDamage(1);
-            gameObject.SetActive(false);
-        }
-        if (other.CompareTag("Wall"))
-        {
-            gameObject.SetActive(false);
+            _bulletUsed = true;
+            if(other.CompareTag(TagToHit))
+            {
+                other.GetComponent<ICharacter>().TakeDamage(1);
+                gameObject.SetActive(false);
+            }
+            if (other.CompareTag("Wall"))
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 

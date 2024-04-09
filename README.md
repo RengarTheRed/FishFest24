@@ -1,5 +1,5 @@
 # FishFest24
- Game made in Unity for Fish Fest Game Jam.
+ Game made in Unity for Fish Fest Game Jam. You can play the game at https://rengarthered.itch.io/fishbornsurvivor or download the release and host on your own server.
 
 ## Introduction
 * This Project is made by a team of 2 University Graduates. 1 Gameplay Programmer and 1 Game Designer.
